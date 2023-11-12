@@ -51,9 +51,9 @@ void setPPMValuesFromData() {
   Serial.print(ppm[2]);
   Serial.print("---");
   Serial.print(ppm[3]);
-  Serial.println("----");
-  Serial.println(ppm[4]);
-  Serial.println("----");
+  Serial.print("----");
+  Serial.print(ppm[4]);
+  Serial.print("----");
   Serial.println(ppm[5]);
 }
 
@@ -119,11 +119,12 @@ void loop() {
   recvData();
 
   unsigned long now = millis();
-  // if (now - lastRecvTime > 1000) {
-  //   // signal lost?
-  Serial.println(ppm[0]);
-  //   resetData();
-  // }
+  if (now - lastRecvTime > 1000) {
+    // signal lost?
+    Serial.print("===========================");
+    Serial.println(ppm[0]);
+    resetData();
+  }
 
   setPPMValuesFromData();
 }
