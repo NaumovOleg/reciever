@@ -22,7 +22,7 @@ int ppm[channel_number];
 
 const uint64_t pipeIn = 0xF0F1F2F3F4LL;
 
-RF24 radio(9, 8);
+RF24 radio(10, 9);
 
 // The sizeof this struct should not exceed 32 bytes
 struct MyData {
